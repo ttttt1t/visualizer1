@@ -65,6 +65,20 @@ const debugToggleBtn = document.getElementById("debug-toggle");
 const drawCanvas = document.getElementById("draw-canvas");
 const drawCtx = drawCanvas.getContext("2d");
 
+
+resizeDrawCanvas();
+window.addEventListener("resize", resizeDrawCanvas);
+function resizeDrawCanvas() {
+  const size = drawCanvas.clientWidth; // visible width
+  drawCanvas.width = size;             // internal width
+  drawCanvas.height = size;            // internal height (square)
+}
+
+resizeDrawCanvas();
+window.addEventListener("resize", resizeDrawCanvas);
+
+
+
 const featureMatrixBody = document.getElementById("feature-matrix-body");
 
 /* Debug visual controls */
@@ -84,6 +98,7 @@ const featureGainControlsContainer = document.getElementById("feature-gain-contr
 
 const spectrumCanvas = document.getElementById("spectrum-canvas");
 const spectrumCtx = spectrumCanvas.getContext("2d");
+
 
 
 /* Offscreen low-res + blur canvases */

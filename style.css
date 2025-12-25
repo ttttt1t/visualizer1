@@ -19,6 +19,8 @@
   --ui-border: var(--shadow-grey-2);
 }
 
+
+
 /* GLOBAL */
 * {
   box-sizing: border-box;
@@ -228,14 +230,23 @@ input[type="range"]::-moz-range-thumb {
 /* CANVAS */
 canvas {
   width: auto;
-  height: 90vh;
+  height: auto;
   background: #fff;
   border: 1px solid var(--ui-border);
   border-radius: 12px;
 }
 
+#draw-canvas {
+  width: 90vh;
+  height: auto;
+  display: block;
+  max-width: 100%;
+}
+
+
 /* MOBILE */
 @media (max-width: 900px) {
+
 
   .container {
     display: flex;
