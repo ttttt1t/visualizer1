@@ -32,8 +32,8 @@ const BASE_GAIN = {
 const VISUAL = {
   blurRadius: 3.6,
   blurIterations: 3,
-  threshold: 245,
-  edgeCushion: 20
+  threshold: 246,
+  edgeCushion: 10
 };
 
 /* Current X/Y feature selections */
