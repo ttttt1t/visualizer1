@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Audio Calligraphy</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+
+<body>
+
+  <header class="top-bar">
+    <button id="debug-toggle" class="debug-toggle">Debug</button>
+  </header>
+
+  <div class="container">
+
+    <!-- CANVAS (desktop: center, mobile: top) -->
+    <div class="canvas-container">
+      <canvas id="draw-canvas" width="700" height="700"></canvas>
+    </div>
+
+    <!-- CONTROLS + DEBUG -->
+    <div class="controls-stack">
+
+      <!-- LEFT PANEL — MAIN CONTROLS -->
+      <div class="panel" id="left-panel">
+
+        <div class="controls-group">
+          <input id="file-input" type="file" accept="audio/*" />
+        </div>
+
+        <div class="controls-group">
+          <button id="play-btn" class="primary" disabled>Play</button>
+          <button id="stop-btn" disabled>Stop</button>
+          <button id="clear-btn" class="danger">Clear</button>
+        </div>
+
+        <!-- VOLUME -->
+        <div class="controls-group">
+          <label>Volume</label>
+          <div class="slider-row">
+            <input id="volume-slider" type="range" min="0" max="1" step="0.01" value="1" />
+            <input id="volume-input" type="number" min="0" max="1" step="0.01" value="1" />
+          </div>
+        </div>
+
+        <hr />
+
+        <h2>Feature mapping</h2>
+
+        <div class="feature-matrix">
+          <div class="feature-matrix-header">
+            <span></span>
+            <span class="col-label">X</span>
+            <span class="col-label">Y</span>
+          </div>
+          <div id="feature-matrix-body"></div>
+        </div>
+
+        <!-- X SCALE -->
+        <div class="controls-group">
+          <label>X scale</label>
+          <div class="slider-row">
+            <input id="x-scale" type="range" min="0.1" max="50" step="0.05" value="10" />
+            <input id="x-scale-input" type="number" min="0.1" max="50" step="0.05" value="10" />
+          </div>
+        </div>
+
+        <!-- Y SCALE -->
+        <div class="controls-group">
+          <label>Y scale</label>
+          <div class="slider-row">
+            <input id="y-scale" type="range" min="0.1" max="50" step="0.05" value="10" />
+            <input id="y-scale-input" type="number" min="0.1" max="50" step="0.05" value="10" />
+          </div>
+        </div>
+
+        <!-- INERTIA -->
+        <div class="controls-group">
+          <label>Calmness</label>
+          <div class="slider-row">
+            <input id="inertia" type="range" min="0.5" max="0.98" step="0.02" value="0.96" />
+            <input id="inertia-input" type="number" min="0.5" max="0.98" step="0.02" value="0.96" />
+          </div>
+        </div>
+
+      </div>
+
+      <!-- RIGHT PANEL — DEBUG -->
+      <div class="panel" id="debug-panel">
+
+        <h2>Visual settings</h2>
+
+        <div class="controls-group debug-row">
+          <label>Blur radius</label>
+          <div class="debug-control-row">
+            <input id="blur-radius-slider" type="range" />
+            <input id="blur-radius-input" type="number" />
+          </div>
+        </div>
+
+        <div class="controls-group debug-row">
+          <label>Blur iterations</label>
+          <div class="debug-control-row">
+            <input id="blur-iterations-slider" type="range" />
+            <input id="blur-iterations-input" type="number" />
+          </div>
+        </div>
+
+        <div class="controls-group debug-row">
+          <label>Threshold</label>
+          <div class="debug-control-row">
+            <input id="threshold-slider" type="range" />
+            <input id="threshold-input" type="number" />
+          </div>
+        </div>
+
+        <div class="controls-group debug-row">
+          <label>Edge cushion</label>
+          <div class="debug-control-row">
+            <input id="edge-cushion-slider" type="range" />
+            <input id="edge-cushion-input" type="number" />
+          </div>
+        </div>
+
+        <hr />
+
+        <h2>Spectrum</h2>
+        <canvas id="spectrum-canvas" width="300" height="60"></canvas>
+
+        <hr />
+
+        <h2>Feature gains</h2>
+        <div id="feature-gain-controls"></div>
+
+        <hr />
+
+        <h2>Raw feature values</h2>
+        <div class="debug-grid" id="debug-grid"></div>
+
+        <h2>Post‑gain values</h2>
+        <div class="debug-grid" id="postgain-grid"></div>
+
+      </div>
+
+    </div>
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>
