@@ -30,9 +30,9 @@ const BASE_GAIN = {
 
 /* Visual settings live in JS and are edited via debug UI */
 const VISUAL = {
-  blurRadius: 3.2,
+  blurRadius: 3.6,
   blurIterations: 3,
-  threshold: 235,
+  threshold: 245,
   edgeCushion: 20
 };
 
@@ -602,7 +602,7 @@ function drawLineLowRes(x, y) {
     return;
   }
 
-  const baseWidth = 0.8 * (lowCanvas.width / drawCanvas.width);
+  const baseWidth = 0.4 * (lowCanvas.width / drawCanvas.width);
 
   lowCtx.strokeStyle = "#000000";
   lowCtx.lineWidth = baseWidth;
